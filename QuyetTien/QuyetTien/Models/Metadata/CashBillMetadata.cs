@@ -15,8 +15,10 @@ namespace QuyetTien.Models
             [DisplayName("Mã hóa đơn")]
             public string BillCode { get; set; }
             [DisplayName("Tên khách hàng")]
+            [Required(ErrorMessage ="{0} không được để trống")]
             public string CustomerName { get; set; }
             [DisplayName("Số điện thoại")]
+            [Required(ErrorMessage = "{0} không được để trống")]
             public string PhoneNumber { get; set; }
             [DisplayName("Địa chỉ")]
             public string Address { get; set; }
