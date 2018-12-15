@@ -16,5 +16,16 @@ namespace QuyetTien.Controllers
             var listCashBill = db.CashBills.OrderByDescending(n => n.ID);
             return View(listCashBill);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(CashBill cashbill)
+        {
+            db.CashBills.Add(cashbill);
+            db.SaveChanges();
+            return RedirectToAction("ViewListCBs");
+        } 
     }
 }
