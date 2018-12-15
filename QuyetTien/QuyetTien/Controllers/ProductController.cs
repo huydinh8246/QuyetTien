@@ -16,5 +16,26 @@ namespace QuyetTien.Controllers
             var listproduct = db.Products.OrderByDescending(n => n.ID);
             return View(listproduct);
         }
+        
+        public ActionResult addProduct()
+        {
+            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ProductTypeCode", "ProductTypeName");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Products.Add(product);
+                db.SaveChanges();
+                return RedirectToAction("viewListProduct");
+            }
+            return View(product);
+        }
+
+
     }
 }
