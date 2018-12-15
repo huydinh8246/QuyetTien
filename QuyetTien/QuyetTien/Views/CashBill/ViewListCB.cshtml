@@ -70,9 +70,8 @@
                         @Html.DisplayFor(modelItem => item.GrandTotal)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        <a href="@Url.Action("Edit","CashBill",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:24px;"></i></a>
+                        <a href="@Url.Action("Delete","CashBill",new { id = item.ID})"><i class="fas fa-trash" style="font-size:24px; color:red"></i></a>
                     </td>
                 </tr>
             }
