@@ -12,11 +12,12 @@ namespace QuyetTien.Models
     {
         internal sealed class ProductMetadata
         {
-            [DisplayName("Mã SP")]
-            public string ProductCode { get; set; }
             [DisplayName("Tên SP")]
+            [Required(ErrorMessage ="{0} không được để trống")]
+            [StringLength(100,ErrorMessage ="{0} không được nhập quá 100 ký tự")]
             public string ProductName { get; set; }
             [DisplayName("Loại SP")]
+            [Required(ErrorMessage ="{0} không được đển trống")]
             public int ProductTypeID { get; set; }
             [DisplayName("Giá bán")]
             public int SalePrice { get; set; }

@@ -95,10 +95,10 @@
                 <ul id="menu">
                     <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Trang Chủ</span></a></li>
                     <li id="menu-academico">
-                        <a href="#"><i class="fa fa-table"></i> <span> Sản phẩm</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                        <a href="@Url.Action("viewListProduct","Product")"><i class="fa fa-table"></i> <span> Sản phẩm</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="#">Danh sách sản phẩm</a></li>
-                            <li id="menu-academico-boletim"><a href="#">Thêm sản phẩm</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="@Url.Action("viewListProduct","Product")">Danh sách sản phẩm</a></li>
+                            <li id="menu-academico-boletim"><a href="@Url.Action("addProduct","Product")">Thêm sản phẩm</a></li>
                         </ul>
                     </li>
                     <li id="menu-academico">

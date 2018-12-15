@@ -371,6 +371,7 @@
     <Content Include="Views\CashBill\ViewListCB.cshtml" />
     <Content Include="Views\Product\viewListProduct.cshtml" />
     <Content Include="Views\CashBill\ViewListCB.cshtml" />
+    <Content Include="Views\Product\editProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
