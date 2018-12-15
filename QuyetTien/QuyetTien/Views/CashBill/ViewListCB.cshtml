@@ -9,7 +9,7 @@
     <h2>Danh sách hóa đơn tiền mặt</h2>
 
     <p>
-        @Html.ActionLink("Thêm hóa đơn", "Create")
+        <a href="@Url.Action("Create","CashBill")"><i class="fas fa-plus-square" style="font-size: 34px"></i></a>
     </p>
     <table class="display table" id="myTable">
         <thead>
@@ -88,13 +88,13 @@
         $('#myTable').DataTable({
             "language": {
                 "sProcessing": "Đang xử lý...",
-                "sLengthMenu": "Xem _MENU_ mục",
-                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sLengthMenu": "Xem _MENU_ hóa đơn",
+                "sZeroRecords": "Không tìm thấy hóa đơn nào phù hợp",
                 "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
                 "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
                 "sInfoFiltered": "(được lọc từ _MAX_ mục)",
                 "sInfoPostFix": "",
-                "sSearch": "Tìm:",
+                "sSearch": "Tìm hóa đơn:",
                 "sUrl": "",
                 "oPaginate": {
                     "sFirst": "Đầu",
