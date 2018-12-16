@@ -67,7 +67,7 @@
 
                                 <div class="search">
                                     <form>
-                                        <input type="text" value="" placeholder="search...">
+                                        <input type="text" value="" placeholder="Tìm...">
                                         <input type="submit" value="">
                                     </form>
                                 </div>
@@ -82,6 +82,85 @@
                 <!--content-->
                 <div class="content">
                     @RenderBody()
+
+                    <!--Footer layout-->
+                    <div class="fo-top-di">
+                        <div class="foot-top">
+
+                            <div class="col-md-6 s-c">
+                                <li>
+                                    <div class="fooll">
+                                        <h1>follow us on</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="social-ic">
+                                        <ul>
+                                            <li><a href="#"><i class="facebok"> </i></a></li>
+                                            <li><a href="#"><i class="twiter"> </i></a></li>
+                                            <li><a href="#"><i class="goog"> </i></a></li>
+                                            <li><a href="#"><i class="be"> </i></a></li>
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="col-md-6 s-c">
+                                <div class="stay">
+                                    <div class="stay-left">
+                                        <form>
+                                            <input type="text" placeholder="Enter your email" required="">
+                                        </form>
+                                    </div>
+                                    <div class="btn-1">
+                                        <form>
+                                            <input type="submit" value="join">
+                                        </form>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+
+                        </div>
+                        <div class="footer">
+                            <div class="col-md-3 cust">
+                                <h4>CUSTOMER CARE</h4>
+                                <li><a href="contact.html">Help Center</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="details.html">How To Buy</a></li>
+                                <li><a href="checkout.html">Delivery</a></li>
+                            </div>
+                            <div class="col-md-2 abt">
+                                <h4>ABOUT US</h4>
+                                <li><a href="products.html">Our Stories</a></li>
+                                <li><a href="products.html">Press</a></li>
+                                <li><a href="faq.html">Career</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </div>
+                            <div class="col-md-2 myac">
+                                <h4>MY ACCOUNT</h4>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="checkout.html">My Cart</a></li>
+                                <li><a href="checkout.html">Order History</a></li>
+                                <li><a href="details.html">Payment</a></li>
+                            </div>
+                            <div class="col-md-5 our-st">
+                                <div class="our-left">
+                                    <h4>OUR STORES</h4>
+                                </div>
+
+                                <li><i class="add"> </i>Mark peter</li>
+                                <li><i class="phone"> </i>012-586987</li>
+                                <li><a href="mailto:info@example.com"><i class="mail"> </i>info@sitename.com </a></li>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <p>© 2018 Đồ án <Strong style="color: red;">Quyết Tiến</Strong> cho môn học | Thiết kế bởi <a href="http://w3layouts.com/">W3layouts</a> | Xây dựng bởi <Strong style="color: aquamarine">Aurora</Strong> và <strong style="color: darkblue">DevWeb</strong></p>
+                        </div>
+                    </div>
+
+                    <!--End Footer Layout-->
                 </div>
                 <!--content-->
             </div>
@@ -90,13 +169,13 @@
         <!--/sidebar-menu-->
         <div class="sidebar-menu">
             <header class="logo1">
-                <a href="index.html"><img src="~/Content/Admin/images/logo.png" class="img-responsive" alt="" style="width: 150px; display: inline;"> </a>
+                <a href="index.html" class="logoQT"><img src="~/Content/Admin/images/logo.png" class="img-responsive" alt="" style="width: 125px; display: inline;"> </a>
                 <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
             </header>
             <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
             <div class="menu">
                 <ul id="menu">
-                    <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Trang Chủ</span></a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Trang Chủ</span></a></li>
                     <li id="menu-academico">
                         <a href="@Url.Action("viewListProduct","Product")"><i class="fa fa-table"></i> <span> Sản phẩm</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
@@ -105,7 +184,7 @@
                         </ul>
                     </li>
                     <li id="menu-academico">
-                        <a href="@Url.Action("ViewListCB","CashBill")"><i class="fa fa-file-text-o"></i></i> <span> Hóa đơn tiền mặt</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                        <a href="@Url.Action("ViewListCB","CashBill")"><i class="fas fa-money-bill"></i> <span> Hóa đơn tiền mặt</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="@Url.Action("ViewListCB","CashBill")">Danh sách hóa đơn tiền mặt</a></li>
                             <li id="menu-academico-boletim"><a href="@Url.Action("Create","CashBill")">Thêm hóa đơn tiền mặt</a></li>
@@ -113,17 +192,17 @@
                         </ul>
                     </li>
                     <li id="menu-academico">
-                        <a href="#"><i class="lnr lnr-book"></i></i> <span> Hóa đơn trả góp</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                        <a href="#"><i class="lnr lnr-book"></i> <span> Hóa đơn trả góp</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="#">Danh sách hóa đơn trả góp</a></li>
                             <li id="menu-academico-boletim"><a href="#">Thêm hóa đơn trả góp</a></li>
                             <li id="menu-academico-boletim"><a href="#">In hóa đơn trả góp</a></li>
                         </ul>
                     </li>
-                    <li id="menu-academico"><a href="sunglasses.html"><i class="fa fa-file-text-o"></i> <span>Quản lý khuyến Mãi</span></a></li>
-                    <li><a href="sweater.html"><i class="lnr lnr-pencil"></i> <span>Tin tức sự kiện</span></a></li>
-                    <li id="menu-academico"><a href="catalog.html"><i class="fa fa-file-text-o"></i> <span>Phân Loại sản phẩm</span></a></li>
-                    <li id="menu-academico"><a href="shoes.html"><i class="lnr lnr-book"></i> <span>Thống kê doanh thu</span></a></li>
+                    <li id="menu-academico"><a href="sunglasses.html"><i class="fas fa-gift"></i> <span>Quản lý khuyến Mãi</span></a></li>
+                    <li><a href="sweater.html"><i class="fas fa-newspaper"></i> <span>Tin tức sự kiện</span></a></li>
+                    <li id="menu-academico"><a href="catalog.html"><i class="fas fa-boxes"></i> <span>Phân Loại sản phẩm</span></a></li>
+                    <li id="menu-academico"><a href="shoes.html"><i class="fas fa-chart-area"></i> <span>Thống kê doanh thu</span></a></li>
 
                     </li>
                 </ul>
@@ -138,12 +217,14 @@
             if (toggle) {
                 $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
                 $("#menu span").css({ "position": "absolute" });
+                $(".logoQT").css({ "display": "none"});
             }
             else {
                 $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
                 setTimeout(function () {
                     $("#menu span").css({ "position": "relative" });
                 }, 400);
+                $(".logoQT").css({ "display": "unset" });
             }
 
             toggle = !toggle;

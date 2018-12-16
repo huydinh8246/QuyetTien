@@ -17,8 +17,8 @@ namespace QuyetTien.Controllers
         DmQT08Entities db = new DmQT08Entities();
         public ActionResult viewListProduct()
         {
-            var listproduct = db.Products.OrderByDescending(n => n.ID);
-            return View(db.Products.Where(n => n.Status==true));
+            var listproduct = db.Products.OrderByDescending(n => n.ID).Where(n=>n.Status==true);
+            return View(listproduct);
         }
         
         public ActionResult addProduct()
@@ -33,6 +33,7 @@ namespace QuyetTien.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.Status = true;
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("viewListProduct");
