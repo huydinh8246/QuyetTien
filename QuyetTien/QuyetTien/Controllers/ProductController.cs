@@ -23,7 +23,7 @@ namespace QuyetTien.Controllers
 
         public ActionResult addProduct()
         {
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ProductTypeCode", "ProductTypeName");
+            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName");
             return View();
         }
 
@@ -52,7 +52,7 @@ namespace QuyetTien.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ProductTypeCode", "ProductTypeName");
+            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName");
             return View(product);
         }
 
