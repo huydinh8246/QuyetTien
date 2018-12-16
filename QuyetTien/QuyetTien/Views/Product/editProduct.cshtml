@@ -7,19 +7,22 @@
 
 
 <div class="monthly-grid">
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>CHỈNH SỬA SẢN PHẨM</strong></h2>
+    </div>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Product</h4>
+
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.ID)
 
             <div class="form-group">
                 @Html.LabelFor(model => model.ProductCode, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     @Html.ValidationMessageFor(model => model.ProductCode, "", new { @class = "text-danger" })
                 </div>
@@ -27,15 +30,15 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ProductTypeID, "ProductTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                @Html.LabelFor(model => model.ProductTypeID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-sm-8 ctl">
                     @Html.DropDownList("ProductTypeID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ProductTypeID, "", new { @class = "text-danger" })
                 </div>
@@ -43,7 +46,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.SalePrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.SalePrice, "", new { @class = "text-danger" })
                 </div>
@@ -51,7 +54,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.OriginPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.OriginPrice, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.OriginPrice, "", new { @class = "text-danger" })
                 </div>
@@ -59,7 +62,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.InstallmentPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.InstallmentPrice, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.InstallmentPrice, "", new { @class = "text-danger" })
                 </div>
@@ -67,7 +70,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
                 </div>
@@ -75,7 +78,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-sm-8 ctl">
                     @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
                 </div>
@@ -83,13 +86,15 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-danger" name = "res-1"  />
                 </div>
             </div>
         </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
+</div>
+<div>
+    @Html.ActionLink("Quay lại", "viewListProduct", "Product", new { @class = "btn btn-primary", @name = "sub-1" })
+
 </div>
