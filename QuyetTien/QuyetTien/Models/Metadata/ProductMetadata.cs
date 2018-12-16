@@ -12,6 +12,8 @@ namespace QuyetTien.Models
     {
         internal sealed class ProductMetadata
         {
+            [DisplayName("Mã SP")]
+            public string ProductCode { get; set; }
             [DisplayName("Tên SP")]
             [Required(ErrorMessage ="{0} không được để trống")]
             [StringLength(100,ErrorMessage ="{0} không được nhập quá 100 ký tự")]

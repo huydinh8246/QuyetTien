@@ -72,5 +72,29 @@ namespace QuyetTien.Controllers
             Session["pd"] = pd;
             return RedirectToAction("viewListProduct");
         }
+
+        public ActionResult deleteProduct(int? ID)
+        {
+            if (ID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(ID);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
+        [HttpPost, ActionName("deleteProduct")]
+        [ValidateAntiForgeryToken]
+        public ActionResult deleteConfimedProduct(int ID)
+        {
+            Product product = db.Products.Find(ID);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("viewListProduct");
+        }
     }
 }
