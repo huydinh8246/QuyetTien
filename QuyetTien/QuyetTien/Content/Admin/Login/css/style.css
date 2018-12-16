@@ -235,7 +235,7 @@ input::placeholder {
   font-weight: 500;
   line-height: 1em;
   text-transform: uppercase;
-  color: #e8716d;
+  color: #b52e31;
   letter-spacing: 0.1rem;
 }
 .user_options-forms .forms_field:not(:last-of-type) {
@@ -272,7 +272,7 @@ input::placeholder {
   color: #b3b3b3;
 }
 .user_options-forms .forms_buttons-action {
-  background-color: #e8716d;
+  background-color: #b52e31;
   border-radius: 3px;
   padding: 10px 35px;
   font-size: 1rem;
