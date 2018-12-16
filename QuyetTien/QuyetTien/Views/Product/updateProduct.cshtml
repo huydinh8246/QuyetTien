@@ -7,7 +7,7 @@
 
 
 <div class="monthly-grid">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("updateProduct","Product"))
     {
         @Html.AntiForgeryToken()
 
@@ -36,7 +36,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ProductTypeID, "ProductTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("ProductTypeID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("ProductTypeCode", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ProductTypeID, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -90,6 +90,6 @@
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Quay lại danh sách sản phẩm", "viewListProduct","Product")
     </div>
 </div>

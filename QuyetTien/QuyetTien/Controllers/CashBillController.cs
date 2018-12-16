@@ -26,6 +26,10 @@ namespace QuyetTien.Controllers
             db.CashBills.Add(cashbill);
             db.SaveChanges();
             return RedirectToAction("ViewListCB");
-        } 
+        }
+        //public ActionResult UpdateCB(CashBill cashBill)
+        //{
+
+        //}
     }
 }
