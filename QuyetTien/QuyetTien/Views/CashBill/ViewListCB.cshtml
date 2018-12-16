@@ -6,10 +6,12 @@
 }
 
 <div class="monthly-grid">
-    <h2>Danh sách hóa đơn tiền mặt</h2>
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>DANH SÁCH HÓA ĐƠN TIỀN MẶT</strong></h2>
+    </div>
 
     <p>
-        <a href="@Url.Action("Create","CashBill")"><i class="fas fa-plus-square" style="font-size: 34px"></i></a>
+        <a href="@Url.Action("AddCB","CashBill")"><i class="fas fa-plus-square" style="font-size: 34px"></i></a>
     </p>
     <table class="display table" id="myTable">
         <thead>
