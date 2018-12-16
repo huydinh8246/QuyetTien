@@ -1,9 +1,16 @@
 ﻿@model QuyetTien.Models.Product
 
+@{
+    ViewBag.Title = "viewListProduct";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
 <div class="monthly-grid">
-    <h3>Are you sure you want to delete this?</h3>
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>Bạn có chắc muốn xóa sản phẩm?</strong></h2>
+    </div>
+
     <div>
-        <h4>Product</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -27,7 +34,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.SalePrice)
+                @Model.SalePrice.ToString("#,##") VNĐ
             </dd>
 
             <dt>
@@ -35,7 +42,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.OriginPrice)
+                @Model.OriginPrice.ToString("#,##") VNĐ
             </dd>
 
             <dt>
@@ -43,7 +50,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.InstallmentPrice)
+                @Model.InstallmentPrice.ToString("#,##") VNĐ
             </dd>
 
             <dt>
@@ -63,19 +70,11 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.ProductTypeID)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Status)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ProductType.ProductTypeCode)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ProductType.ProductTypeCode)
+                @Html.DisplayFor(model => model.ProductType.ProductTypeName)
             </dd>
 
         </dl>
@@ -85,10 +84,12 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Quay lại danh sách sản phẩm", "viewListProduct","Product")
+                <input type="submit" value="Xóa sản phẩm" class="btn btn-danger" name="res-1" />
+
             </div>
         }
     </div>
-
 </div>
+@Html.ActionLink("Quay lại", "viewListProduct", "Product", new { @class = "btn btn-primary", @name = "sub-1" })
+
+
