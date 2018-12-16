@@ -5,10 +5,12 @@
     Layout = "~/Views/Layout/_AdminLayout.cshtml";
 }
 
-<h2>viewListProduct</h2>
 <div class="monthly-grid">
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>XEM DANH SÁCH SẢN PHẨM</strong></h2>
+    </div>
     <p>
-        @Html.ActionLink("Thêm sản phẩm", "addProduct","Product")
+        <a href="@Url.Action("addProduct","Product")"><i class="fas fa-plus-square" style="font-size: 34px"></i></a>
     </p>
 
     <table class="display" id="myTable">
@@ -38,10 +40,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Avatar)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>
-                <th></th>
+                <th>Tùy chọn</th>
             </tr>
 
         </thead>
@@ -56,7 +55,7 @@
                         @Html.DisplayFor(modelItem => item.ProductName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProductTypeID)
+                        @Html.DisplayFor(modelItem => item.ProductType.ProductTypeName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.SalePrice)
@@ -74,12 +73,8 @@
                         @Html.DisplayFor(modelItem => item.Avatar)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        <a href="@Url.Action("Edit","CashBill",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:24px;"></i></a>
+                        <a href="@Url.Action("Delete","CashBill",new { id = item.ID})"><i class="fas fa-trash" style="font-size:24px; color:red"></i></a>
                     </td>
                 </tr>
             }
@@ -89,6 +84,25 @@
 </div>
 <script>
     $(document).ready(function () {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ hóa đơn",
+                "sZeroRecords": "Không tìm thấy hóa đơn nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm hóa đơn:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+
+            }
+        });
     });
 </script>

@@ -25,7 +25,7 @@ namespace QuyetTien.Controllers
         {
             db.CashBills.Add(cashbill);
             db.SaveChanges();
-            return RedirectToAction("ViewListCBs");
+            return RedirectToAction("ViewListCB");
         } 
     }
 }
