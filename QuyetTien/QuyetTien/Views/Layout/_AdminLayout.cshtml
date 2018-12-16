@@ -175,7 +175,7 @@
             <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
             <div class="menu">
                 <ul id="menu">
-                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Trang Chủ</span></a></li>
+                    <li><a href="@Url.Action("viewListProduct","Product")"><i class="fas fa-home"></i> <span>Trang Chủ</span></a></li>
                     <li id="menu-academico">
                         <a href="@Url.Action("viewListProduct","Product")"><i class="fa fa-table"></i> <span> Sản phẩm</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
@@ -187,7 +187,7 @@
                         <a href="@Url.Action("ViewListCB","CashBill")"><i class="fas fa-money-bill"></i> <span> Hóa đơn tiền mặt</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="@Url.Action("ViewListCB","CashBill")">Danh sách hóa đơn tiền mặt</a></li>
-                            <li id="menu-academico-boletim"><a href="@Url.Action("Create","CashBill")">Thêm hóa đơn tiền mặt</a></li>
+                            <li id="menu-academico-boletim"><a href="@Url.Action("AddCB","CashBill")">Thêm hóa đơn tiền mặt</a></li>
                             <li id="menu-academico-boletim"><a href="#">In hóa đơn tiền mặt</a></li>
                         </ul>
                     </li>
