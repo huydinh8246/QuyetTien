@@ -1,0 +1,70 @@
+﻿@model QuyetTien.Models.CashBillDetail
+
+@{
+    ViewBag.Title = "PrintCB";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin/printBill/style.css" rel="stylesheet" type="text/css"  />
+}
+    <div class="monthly-grid">
+        <div class="clearfix hearderBill">
+            <div id="logo">
+                <img src="@Url.Content("~/Content/Admin/images/logo.png")">
+            </div>
+            <div id="company">
+                <h2 class="name" style="color: #b4031d"><strong>Quyết Tiến</strong></h2>
+                <div>455 Điện Biên Phủ, Đồng Nai</div>
+                <div>(065) 3359-0450</div>
+                <div><a href="mailto:company@example.com">QuyetTienDM@gmail.com</a></div>
+            </div>
+        </div>
+        <div class="mainBill">
+            <div id="details" class="clearfix">
+                <div id="client">
+                    <div class="to">INVOICE TO:</div>
+                    <h2 class="name">John Doe</h2>
+                    <div class="address">796 Silver Harbour, TX 79273, US</div>
+                </div>
+                <div id="invoice">
+                    <h1>INVOICE 3-2-1</h1>
+                    <div class="date">Date of Invoice: 01/06/2014</div>
+                    <div class="date">Due Date: 30/06/2014</div>
+                </div>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th class="no">#</th>
+                        <th class="desc">DESCRIPTION</th>
+                        <th class="unit">UNIT PRICE</th>
+                        <th class="qty">QUANTITY</th>
+                        <th class="total">TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="no">01</td>
+                        <td class="desc"><h3>Website Design</h3></td>
+                        <td class="unit">$40.00</td>
+                        <td class="qty">30</td>
+                        <td class="total">$1,200.00</td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td colspan="2">GRAND TOTAL</td>
+                        <td>$6,500.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div id="thanks">Thank you!</div>
+            <div id="notices">
+                <div>NOTICE:</div>
+                <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+            </div>
+        </div>
+    </div>
+

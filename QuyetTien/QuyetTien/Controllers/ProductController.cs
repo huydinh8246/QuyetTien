@@ -66,6 +66,7 @@ namespace QuyetTien.Controllers
                 pd.InstallmentPrice = product.InstallmentPrice;
                 pd.Quantity = product.Quantity;
                 pd.Avatar = product.Avatar;
+                pd.ProductTypeID = product.ProductTypeID;
             pd.Status = true;
             db.Entry(pd).State = EntityState.Modified;
             db.SaveChanges();
@@ -92,7 +93,8 @@ namespace QuyetTien.Controllers
         public ActionResult deleteProduct(int ID)
         {
             Product product = db.Products.Find(ID);
-            db.Products.Remove(product);
+            product.Status = false;
+            db.Entry(product).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("viewListProduct");
         }
