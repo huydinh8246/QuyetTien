@@ -32,15 +32,18 @@ namespace QuyetTien.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult addProduct(Product product, HttpPostedFileBase Avatar)
         {
+            Product pd = db.Products.Add(product);
+            db.SaveChanges();
             if (ModelState.IsValid)
             {
                 if (Avatar.ContentLength > 0 && Avatar != null)
                 {
                     try
                     {
-                        string fileName = product.ID + Path.GetExtension(Avatar.FileName);
+                        string fileName = pd.ID + Path.GetExtension(Avatar.FileName);
                         string path = Path.Combine(Server.MapPath("~/Content/Admin/images/"), fileName);
-                        product.Avatar = fileName;
+                        Avatar.SaveAs(path);
+                        pd.Avatar = fileName;
                     }
                     catch (Exception ex)
                     {
@@ -48,8 +51,8 @@ namespace QuyetTien.Controllers
                     }
 
                 }
-                product.Status = true;
-                db.Products.Add(product);
+                pd.Status = true;
+                db.Entry(pd).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("viewListProduct");
             }
@@ -72,20 +75,32 @@ namespace QuyetTien.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateProduct(Product product)
+        public ActionResult updateProduct(Product product, HttpPostedFileBase Avatar)
         {   
             Product pd = db.Products.FirstOrDefault(n => n.ID == product.ID);
-                pd.ProductName = product.ProductName;
-                pd.SalePrice = product.SalePrice;
-                pd.OriginPrice = product.OriginPrice;
-                pd.InstallmentPrice = product.InstallmentPrice;
-                pd.Quantity = product.Quantity;
-                pd.Avatar = product.Avatar;
-                pd.ProductTypeID = product.ProductTypeID;
+            pd.ProductName = product.ProductName;
+            pd.SalePrice = product.SalePrice;
+            pd.OriginPrice = product.OriginPrice;
+            pd.InstallmentPrice = product.InstallmentPrice;
+            pd.Quantity = product.Quantity;
+            if (Avatar.ContentLength > 0 && Avatar != null)
+            {
+                try
+                {
+                    string fileName = pd.ID + Path.GetExtension(Avatar.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Content/Admin/images/"), fileName);
+                    Avatar.SaveAs(path);
+                    pd.Avatar = fileName;
+                }
+                catch (Exception ex)
+                {
+                    return Content("Upload lỗi" + ex);
+                }
+
+            }
             pd.Status = true;
             db.Entry(pd).State = EntityState.Modified;
             db.SaveChanges();
-            Session["pd"] = pd;
             return RedirectToAction("viewListProduct");
         }
 

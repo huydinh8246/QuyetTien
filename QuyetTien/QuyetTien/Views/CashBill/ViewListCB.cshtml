@@ -73,6 +73,7 @@
                     <td>
                         <a href="@Url.Action("UpdateCB","CashBill",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:24px;"></i></a>
                         <a href="@Url.Action("deleteCB","CashBill",new { id = item.ID})"><i class="fas fa-trash" style="font-size:24px; color:red"></i></a>
+                        <a href="@Url.Action("PrintCB","CashBill",new { id = item.ID})"><i class="fas fa-print" style="font-size:24px; color:forestgreen"></i></a>
                     </td>
                 </tr>
             }

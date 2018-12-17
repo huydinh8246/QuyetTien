@@ -1,70 +1,77 @@
-﻿@model QuyetTien.Models.CashBillDetail
+﻿@model IEnumerable<QuyetTien.Models.CashBillDetail>
 
 @{
     ViewBag.Title = "PrintCB";
     Layout = "~/Views/Layout/_AdminLayout.cshtml";
+    int i = 1;
 }
 @section Styles {
-    <link href="~/Content/Admin/printBill/style.css" rel="stylesheet" type="text/css"  />
+    <link href="~/Content/Admin/printBill/style.css" rel="stylesheet" type="text/css" />
 }
-    <div class="monthly-grid">
-        <div class="clearfix hearderBill">
-            <div id="logo">
-                <img src="@Url.Content("~/Content/Admin/images/logo.png")">
-            </div>
-            <div id="company">
-                <h2 class="name" style="color: #b4031d"><strong>Quyết Tiến</strong></h2>
-                <div>455 Điện Biên Phủ, Đồng Nai</div>
-                <div>(065) 3359-0450</div>
-                <div><a href="mailto:company@example.com">QuyetTienDM@gmail.com</a></div>
-            </div>
+<div class="monthly-grid">
+    <div class="clearfix hearderBill">
+        <div id="logo">
+            <img src="@Url.Content("~/Content/Admin/images/logo.png")">
         </div>
-        <div class="mainBill">
-            <div id="details" class="clearfix">
-                <div id="client">
-                    <div class="to">INVOICE TO:</div>
-                    <h2 class="name">John Doe</h2>
-                    <div class="address">796 Silver Harbour, TX 79273, US</div>
-                </div>
-                <div id="invoice">
-                    <h1>INVOICE 3-2-1</h1>
-                    <div class="date">Date of Invoice: 01/06/2014</div>
-                    <div class="date">Due Date: 30/06/2014</div>
-                </div>
-            </div>
-            <table border="0" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                        <th class="no">#</th>
-                        <th class="desc">DESCRIPTION</th>
-                        <th class="unit">UNIT PRICE</th>
-                        <th class="qty">QUANTITY</th>
-                        <th class="total">TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="no">01</td>
-                        <td class="desc"><h3>Website Design</h3></td>
-                        <td class="unit">$40.00</td>
-                        <td class="qty">30</td>
-                        <td class="total">$1,200.00</td>
-                    </tr>
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td colspan="2">GRAND TOTAL</td>
-                        <td>$6,500.00</td>
-                    </tr>
-                </tfoot>
-            </table>
-            <div id="thanks">Thank you!</div>
-            <div id="notices">
-                <div>NOTICE:</div>
-                <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-            </div>
+        <div id="company">
+            <h2 class="name" style="color: #b4031d"><strong>Quyết Tiến</strong></h2>
+            <div>455 Điện Biên Phủ, Đồng Nai</div>
+            <div>(065) 3359-0450</div>
+            <div><a href="mailto:company@example.com">QuyetTienDM@gmail.com</a></div>
         </div>
     </div>
+    <div class="mainBill">
 
+        <div id="details" class="clearfix">
+            <div id="client">
+                <div class="to">Khách hàng:</div>
+                <h2 class="name">@ViewBag.billCode.CustomerName</h2>
+                <div class="address">@ViewBag.billCode.Address</div>
+            </div>
+            <div id="invoice">
+                <h1>@ViewBag.billCode.BillCode</h1>
+                <div class="date">Ngày xuất: @(((DateTime)ViewBag.billCode.Date).ToString("dd-MM-yyyy"))</div>
+            </div>
+        </div>
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th class="no">STT</th>
+                    <th class="desc">TÊN SẢN PHẨM</th>
+                    <th class="unit">GIÁ BÁN</th>
+                    <th class="qty">SỐ LƯỢNG</th>
+                    <th class="total">THÀNH TIỀN (VNĐ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="no">@i</td>
+                        <td class="desc"><h3>@item.Product.ProductName</h3></td>
+                        <td class="unit">@item.Product.SalePrice.ToString("#,##")</td>
+                        <td class="qty">@item.Quantity</td>
+                        <td class="total">@((item.Product.SalePrice * item.Quantity).ToString("#,##"))</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">Tổng tiền</td>
+                    <td>@ViewBag.billCode.GrandTotal.ToString("#,##") VNĐ</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="thanks">Cám ơn bạn!</div>
+        <div id="notices">
+            <div>Lưu ý:</div>
+            <div class="notice">Hóa đơn có giá trị đổi trả sản phẩm trong vòng 7 ng.</div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Quay lại", "ViewListCB", "CashBill", new { @class = "btn btn-primary", @name = "sub-1" })
+    @Html.ActionLink("In hóa đơn", "ViewListCB", "CashBill", new { @class = "btn btn-danger", @name = "res-1" })
+</div>

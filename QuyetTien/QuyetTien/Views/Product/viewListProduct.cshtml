@@ -70,7 +70,7 @@
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Avatar)
+                        <img src="@Url.Content("~/Content/Admin/images/"+item.Avatar)" alt="@item.ProductName"  style="height:100px" />
                     </td>
                     <td>
                         <a href="@Url.Action("updateProduct","Product",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:24px;"></i></a>
