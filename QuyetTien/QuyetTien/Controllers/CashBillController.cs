@@ -82,5 +82,10 @@ namespace QuyetTien.Controllers
             db.SaveChanges();
             return RedirectToAction("ViewListCB");
         }
+
+        public ActionResult PrintCB()
+        {
+            return View();
+        }
     }
 }
