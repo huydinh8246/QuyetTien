@@ -11,9 +11,29 @@ namespace QuyetTien.Controllers
     {
         DmQT08Entities db = new DmQT08Entities();
         // GET: Login
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login(FormCollection tv)
+        {
+            string txtUserName = tv["txtUserName"];
+            string txtPassword = tv["txtPassword"];
+            Account acc = db.Accounts.SingleOrDefault(n => n.Username == txtUserName && n.Password == txtPassword);
+            if (acc != null && acc.ToString() != "")
+            {
+                Session["acc"] = acc;
+                return RedirectToAction("viewListProduct","Product");
+            }
+            ViewBag.thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SignUp()
+        {
+
+            return RedirectToAction("Login");
         }
     }
 }

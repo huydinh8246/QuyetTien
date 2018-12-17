@@ -375,6 +375,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\CashBill\UpdateCB.cshtml" />
     <Content Include="Views\CashBill\deleteCB.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

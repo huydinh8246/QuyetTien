@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="DmQT08Model.InstallmentBill" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT08Model.InstallmentBillDetail" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT08Model.Product" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DmQT08Model.ProductType" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DmQT08Model.ProductType" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <AssociationConnector Association="DmQT08Model.FK_CashBillDetail_CashBill" ManuallyRouted="false" />
         <AssociationConnector Association="DmQT08Model.FK_CashBillDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="DmQT08Model.FK_InstallmentBill_Customer" ManuallyRouted="false" />
