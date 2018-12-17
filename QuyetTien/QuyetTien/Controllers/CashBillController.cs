@@ -47,13 +47,13 @@ namespace QuyetTien.Controllers
         public ActionResult UpdateCB(CashBill cash)
         {
             CashBill cashBill = db.CashBills.FirstOrDefault(n => n.ID == cash.ID);
-                cashBill.CustomerName = cash.CustomerName;
-                cashBill.GrandTotal = cash.GrandTotal;
-                cashBill.Note = cash.Note;
-                cashBill.Shipper = cash.Shipper;
-                cashBill.Date = cash.Date;
-                cashBill.Address = cash.Address;
-                cashBill.PhoneNumber = cash.PhoneNumber;
+            cashBill.CustomerName = cash.CustomerName;
+            cashBill.GrandTotal = cash.GrandTotal;
+            cashBill.Note = cash.Note;
+            cashBill.Shipper = cash.Shipper;
+            cashBill.Date = cash.Date;
+            cashBill.Address = cash.Address;
+            cashBill.PhoneNumber = cash.PhoneNumber;
             db.Entry(cashBill).State = EntityState.Modified;
             db.SaveChanges();
             Session["cashBill"] = cashBill;
@@ -83,9 +83,16 @@ namespace QuyetTien.Controllers
             return RedirectToAction("ViewListCB");
         }
 
-        public ActionResult PrintCB()
+        public ActionResult PrintCB(int ID)
         {
-            return View();
+            var cbd = db.CashBillDetails.Where(n => n.BillID==ID);
+            if(cbd == null)
+            {
+                return Content("Chưa cập nhật hóa đơn chi tiết");
+            }
+            CashBill cb = db.CashBills.FirstOrDefault(n => n.ID == ID);
+            ViewBag.billCode = cb;
+            return View(cbd);
         }
     }
 }
