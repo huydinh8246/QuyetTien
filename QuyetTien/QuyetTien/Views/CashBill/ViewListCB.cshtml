@@ -6,7 +6,7 @@
 }
 
 <div class="monthly-grid">
-    <div class=11"progressbar-heading grids-heading">
+    <div class="progressbar-heading grids-heading">
         <h2><strong>DANH SÁCH HÓA ĐƠN TIỀN MẶT</strong></h2>
     </div>
     <p>
@@ -71,9 +71,9 @@
                         @Html.DisplayFor(modelItem => item.GrandTotal)
                     </td>
                     <td>
-                        <a href="@Url.Action("UpdateCB","CashBill",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:24px;"></i></a>
-                        <a href="@Url.Action("deleteCB","CashBill",new { id = item.ID})"><i class="fas fa-trash" style="font-size:24px; color:red"></i></a>
-                        <a href="@Url.Action("PrintCB","CashBill",new { id = item.ID})"><i class="fas fa-print" style="font-size:24px; color:forestgreen"></i></a>
+                        <a href="@Url.Action("UpdateCB","CashBill",new { id = item.ID})"><i class="fas fa-pen-square" style="font-size:18px;"></i></a>
+                        <a href="@Url.Action("deleteCB","CashBill",new { id = item.ID})"><i class="fas fa-trash" style="font-size:18px; color:red"></i></a>
+                        <a href="@Url.Action("PrintCB","CashBill",new { id = item.ID})"><i class="fas fa-print" style="font-size:18px; color:forestgreen"></i></a>
                     </td>
                 </tr>
             }
