@@ -378,6 +378,7 @@
     <Content Include="Views\CashBill\deleteCB.cshtml" />
     <Content Include="Views\CashBill\PrintCB.cshtml" />
     <Content Include="Views\CashBill\ViewListCB.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
