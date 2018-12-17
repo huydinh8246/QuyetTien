@@ -7,6 +7,7 @@ using QuyetTien.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Net;
+using System.IO;
 
 
 namespace QuyetTien.Controllers
@@ -29,10 +30,24 @@ namespace QuyetTien.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult addProduct(Product product)
+        public ActionResult addProduct(Product product, HttpPostedFileBase Avatar)
         {
             if (ModelState.IsValid)
             {
+                if (Avatar.ContentLength > 0 && Avatar != null)
+                {
+                    try
+                    {
+                        string fileName = product.ID + Path.GetExtension(Avatar.FileName);
+                        string path = Path.Combine(Server.MapPath("~/Content/Admin/images/"), fileName);
+                        product.Avatar = fileName;
+                    }
+                    catch (Exception ex)
+                    {
+                        return Content("Upload lỗi" + ex);
+                    }
+
+                }
                 product.Status = true;
                 db.Products.Add(product);
                 db.SaveChanges();
@@ -98,5 +113,6 @@ namespace QuyetTien.Controllers
             db.SaveChanges();
             return RedirectToAction("viewListProduct");
         }
+
     }
 }
