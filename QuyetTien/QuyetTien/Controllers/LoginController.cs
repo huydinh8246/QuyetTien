@@ -30,10 +30,11 @@ namespace QuyetTien.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp()
+        public ActionResult SignUp(Account account)
         {
-
-            return RedirectToAction("Login");
+            db.Accounts.Add(account);
+            db.SaveChanges();
+            return RedirectToAction("viewListProduct","Product");
         }
     }
 }
