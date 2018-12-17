@@ -1,0 +1,90 @@
+﻿@model QuyetTien.Models.CashBill
+
+@{
+    ViewBag.Title = "deleteCB";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<div class="monthly-grid">
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>Bạn có chắc muốn xóa sản phẩm?</strong></h2>
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BillCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BillCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shipper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shipper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrandTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrandTotal)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa hóa đơn" class="btn btn-danger" name="res-1" />
+
+        </div>
+    }
+</div>
+@Html.ActionLink("Quay lại", "viewListProduct", "Product", new { @class = "btn btn-primary", @name = "sub-1" })

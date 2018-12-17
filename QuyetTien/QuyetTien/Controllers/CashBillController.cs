@@ -59,9 +59,28 @@ namespace QuyetTien.Controllers
             Session["cashBill"] = cashBill;
             return RedirectToAction("ViewListCB");
         }
-        //public ActionResult UpdateCB(CashBill cashBill)
-        //{
+        public ActionResult deleteCB(int? ID)
+        {
+            if (ID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CashBill cashbill = db.CashBills.Find(ID);
+            if (cashbill == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cashbill);
+        }
 
-        //}
+        [HttpPost, ActionName("deleteCB")]
+        [ValidateAntiForgeryToken]
+        public ActionResult deleteConfimedCB(int ID)
+        {
+            CashBill cashbill = db.CashBills.Find(ID);
+            db.CashBills.Remove(cashbill);
+            db.SaveChanges();
+            return RedirectToAction("ViewListCB");
+        }
     }
 }
