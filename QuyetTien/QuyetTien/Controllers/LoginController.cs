@@ -30,11 +30,27 @@ namespace QuyetTien.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(Account account)
+        public ActionResult SignUp(FormCollection account)
         {
-            db.Accounts.Add(account);
+            string UserName = account["UserName"];
+            Account acc = db.Accounts.SingleOrDefault(n => n.Username == UserName);
+            if (acc != null && acc.ToString() != "")
+            {
+                ViewBag.thongbao = "ten dang nhap bi trung";
+                return View();
+            }
+            acc.Username = UserName;
+            acc.Password = account["Password"];
+            acc.Fullname = account["FullName"];
+            Session["acc"] = acc;
+            db.Accounts.Add(acc);
             db.SaveChanges();
             return RedirectToAction("viewListProduct","Product");
+        }
+        public ActionResult LogOut()
+        {
+            Session["acc"] = null;
+            return RedirectToAction("Login","Login");
         }
     }
 }

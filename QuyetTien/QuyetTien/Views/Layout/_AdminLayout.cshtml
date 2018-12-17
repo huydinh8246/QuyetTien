@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using QuyetTien.Models;
+@{Account account = (Account)Session["acc"];
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
     <!-- Bootstrap Core CSS -->
@@ -47,8 +51,8 @@
                                 </ul>
                             </div>
                             <div class="top_left">
-
-                                <h2>Chào: Mạnh Hùng | <a href="#" style="color: #b52e31">Đăng xuất <i class="fas fa-sign-out-alt"></i></a></h2>
+                                
+                                <h2>Chào: @account.Fullname | <a href="@Url.Action("LogOut","Login")" style="color: #b52e31">Đăng xuất <i class="fas fa-sign-out-alt"></i></a></h2>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
