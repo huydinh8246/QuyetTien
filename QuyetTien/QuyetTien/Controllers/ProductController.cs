@@ -20,7 +20,7 @@ namespace QuyetTien.Controllers
             var listproduct = db.Products.OrderByDescending(n => n.ID).Where(n=>n.Status==true);
             return View(listproduct);
         }
-        
+
         public ActionResult addProduct()
         {
             ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName");
@@ -41,7 +41,7 @@ namespace QuyetTien.Controllers
             return View(product);
         }
 
-        public ActionResult editProduct(int ? ID)
+        public ActionResult updateProduct(int ? ID)
         {
             if (ID == null)
             {
@@ -57,7 +57,7 @@ namespace QuyetTien.Controllers
         }
 
         [HttpPost]
-        public ActionResult editProduct(Product product)
+        public ActionResult updateProduct(Product product)
         {   
             Product pd = db.Products.FirstOrDefault(n => n.ID == product.ID);
                 pd.ProductName = product.ProductName;
@@ -66,7 +66,7 @@ namespace QuyetTien.Controllers
                 pd.InstallmentPrice = product.InstallmentPrice;
                 pd.Quantity = product.Quantity;
                 pd.Avatar = product.Avatar;
-                pd.Status = product.Status;
+            pd.Status = true;
             db.Entry(pd).State = EntityState.Modified;
             db.SaveChanges();
             Session["pd"] = pd;
@@ -89,7 +89,7 @@ namespace QuyetTien.Controllers
 
         [HttpPost, ActionName("deleteProduct")]
         [ValidateAntiForgeryToken]
-        public ActionResult deleteConfimedProduct(int ID)
+        public ActionResult deleteProduct(int ID)
         {
             Product product = db.Products.Find(ID);
             db.Products.Remove(product);

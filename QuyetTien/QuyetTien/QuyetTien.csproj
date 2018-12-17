@@ -368,12 +368,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Layout\_AdminLayout.cshtml" />
     <Content Include="Views\Product\viewListProduct.cshtml" />
-    <Content Include="Views\CashBill\ViewListCB.cshtml" />
-    <Content Include="Views\Product\editProduct.cshtml" />
+    <Content Include="Views\Product\updateProduct.cshtml" />
     <Content Include="Views\CashBill\AddCB.cshtml" />
     <Content Include="Views\Product\addProduct.cshtml" />
     <Content Include="Views\Product\deleteProduct.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\CashBill\UpdateCB.cshtml" />
     <Content Include="Views\CashBill\deleteCB.cshtml" />
   </ItemGroup>
   <ItemGroup>

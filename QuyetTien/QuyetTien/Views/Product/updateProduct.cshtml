@@ -10,7 +10,7 @@
     <div class="progressbar-heading grids-heading">
         <h2><strong>CHỈNH SỬA SẢN PHẨM</strong></h2>
     </div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("updateProduct","Product"))
     {
         @Html.AntiForgeryToken()
 
