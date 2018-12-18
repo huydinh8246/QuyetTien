@@ -18,8 +18,12 @@ namespace QuyetTien.Controllers
         DmQT08Entities db = new DmQT08Entities();
         public ActionResult viewListProduct()
         {
-            var listproduct = db.Products.OrderByDescending(n => n.ID).Where(n=>n.Status==true);
-            return View(listproduct);
+            if (Session["acc"] != null)
+            {
+                var listproduct = db.Products.OrderByDescending(n => n.ID).Where(n => n.Status == true);
+                return View(listproduct);
+            }
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult addProduct()

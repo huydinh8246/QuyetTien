@@ -15,8 +15,12 @@ namespace QuyetTien.Controllers
         // GET: CashBill
         public ActionResult ViewListCB()
         {
-            var listCashBill = db.CashBills.OrderByDescending(n => n.ID);
-            return View(listCashBill);
+            if(Session["acc"] != null)
+            {
+                var listCashBill = db.CashBills.OrderByDescending(n => n.ID);
+                return View(listCashBill);
+            }
+            return RedirectToAction("Login", "Login");
         }
         public ActionResult AddCB()
         {
