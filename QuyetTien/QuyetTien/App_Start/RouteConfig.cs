@@ -18,6 +18,7 @@ namespace QuyetTien
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Product", action = "viewListProduct", id = UrlParameter.Optional }
             );
+            
         }
     }
 }

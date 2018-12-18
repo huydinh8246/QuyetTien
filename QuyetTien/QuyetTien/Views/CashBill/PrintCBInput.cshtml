@@ -1,0 +1,20 @@
+﻿@using QuyetTien.Models
+@{
+    ViewBag.Title = "PrintCBInput";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<div class="monthly-grid" style="height: 200px">
+    <div class="progressbar-heading grids-heading">
+        <h2><strong>Nhập mã hóa đơn</strong></h2>
+        <div class="search col-md-4">
+            @using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "result" }))
+            {
+                <input type="text" name="key" value="" placeholder="Tìm...">
+                <input type="submit" value="">
+            }
+                <p class="text text-warning"></p>
+        </div>
+    </div>
+    
+</div>

@@ -23,7 +23,11 @@ namespace QuyetTien.Controllers
                 var listproduct = db.Products.OrderByDescending(n => n.ID).Where(n => n.Status == true);
                 return View(listproduct);
             }
-            return RedirectToAction("Login", "Login");
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            
         }
 
         public ActionResult addProduct()
